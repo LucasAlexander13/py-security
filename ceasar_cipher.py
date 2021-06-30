@@ -51,10 +51,18 @@ while True:
             if message[char] == ' ':
                 new_message.append(' ')
 
+            elif message[char] in upper_letters:
+                position = upper_letters.index(message[char]) - encrypt_key
+                if position >= len(upper_letters):
+                    position = position - len(upper_letters)
+                    new_message.append(upper_letters[position])
+                else:
+                    new_message.append(upper_letters[position])
+
             elif message[char] in lower_letters:
                 position = lower_letters.index(message[char]) - encrypt_key
                 if position < 0:
-                    position = len(lower_letters) + position
+                    position = position - len(lower_letters)
                     new_message.append(lower_letters[position])
                 else:
                     new_message.append(lower_letters[position])
