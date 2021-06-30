@@ -22,7 +22,20 @@ if process == 'encode':
                 new_message.append(letter_list[position])
             else:
                 new_message.append(letter_list[position])
-                
-new_message = ''.join(new_message)
-print(f'Your message is: {new_message}')
 
+    new_message = ''.join(new_message)
+    print(f'Your message is: {new_message}')
+
+elif process == 'decode':
+    for char in range(len(message)):
+        if message[char] == ' ':
+            new_message.append(' ')
+        elif message[char] in letter_list:
+            position = letter_list.index(message[char]) - encrypt_key
+            if position < 0:
+                position = len(letter_list) + position
+                new_message.append(letter_list[position])
+            else:
+                new_message.append(letter_list[position])
+    new_message = ''.join(new_message)
+    print(f'Your message is: {new_message}')
