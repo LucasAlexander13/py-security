@@ -1,10 +1,9 @@
+from char_list import *
+
 '''
 create a program that can encode and decode any 
 message in another one with ceasar cipher method
 '''
-
-letter_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 
-'m', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 while True:
     message = list(input('Type the message: ').lower())
@@ -16,30 +15,37 @@ while True:
         for char in range(len(message)):
             if message[char] == ' ':
                 new_message.append(' ')
-            elif message[char] in letter_list:
-                position = letter_list.index(message[char]) + encrypt_key
-                if position >= len(letter_list):
-                    position = position - len(letter_list)
-                    new_message.append(letter_list[position])
+            elif message[char] in lower_letters:
+                position = lower_letters.index(message[char]) + encrypt_key
+                if position >= len(lower_letters):
+                    position = position - len(lower_letters)
+                    new_message.append(lower_letters[position])
                 else:
-                    new_message.append(letter_list[position])
+                    new_message.append(lower_letters[position])
 
         new_message = ''.join(new_message)
         print(f'\nYour message is: {new_message}\n')
+
+        replay = input('Enter "Y" to continue: ').lower()
+        if replay != 'y': break
 
     elif process == 'decode':
         for char in range(len(message)):
             if message[char] == ' ':
                 new_message.append(' ')
-            elif message[char] in letter_list:
-                position = letter_list.index(message[char]) - encrypt_key
+            elif message[char] in lower_letters:
+                position = lower_letters.index(message[char]) - encrypt_key
                 if position < 0:
-                    position = len(letter_list) + position
-                    new_message.append(letter_list[position])
+                    position = len(lower_letters) + position
+                    new_message.append(lower_letters[position])
                 else:
-                    new_message.append(letter_list[position])
+                    new_message.append(lower_letters[position])
+
         new_message = ''.join(new_message)
         print(f'\nYour message is: {new_message}\n')
+
+        replay = input('Enter "Y" to continue: ').lower()
+        if replay != 'y': break
 
     else:
         print(f'\nTry again, something goes wrong.\n')
