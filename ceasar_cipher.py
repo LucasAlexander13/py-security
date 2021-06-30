@@ -51,6 +51,14 @@ while True:
                 else:
                     new_message.append(lower_letters[position])
 
+            elif message[char] in numbers:
+                position = numbers.index(message[char]) - encrypt_key
+                if position < 0:
+                    position = len(numbers) + position
+                    new_message.append(numbers[position])
+                else:
+                    new_message.append(numbers[position])
+
         new_message = ''.join(new_message)
         print(f'\nYour message is: {new_message}\n')
 
