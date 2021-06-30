@@ -15,6 +15,7 @@ while True:
         for char in range(len(message)):
             if message[char] == ' ':
                 new_message.append(' ')
+
             elif message[char] in lower_letters:
                 position = lower_letters.index(message[char]) + encrypt_key
                 if position >= len(lower_letters):
@@ -22,6 +23,14 @@ while True:
                     new_message.append(lower_letters[position])
                 else:
                     new_message.append(lower_letters[position])
+
+            elif message[char] in numbers:
+                position = numbers.index(message[char]) + encrypt_key
+                if position >= len(numbers):
+                    position = position - len(numbers)
+                    new_message.append(numbers[position])
+                else:
+                    new_message.append(numbers[position])
 
         new_message = ''.join(new_message)
         print(f'\nYour message is: {new_message}\n')
@@ -33,6 +42,7 @@ while True:
         for char in range(len(message)):
             if message[char] == ' ':
                 new_message.append(' ')
+
             elif message[char] in lower_letters:
                 position = lower_letters.index(message[char]) - encrypt_key
                 if position < 0:
