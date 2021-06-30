@@ -1,11 +1,5 @@
 from random import choice
-lower_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 
-'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-upper_letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
-'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
-all_char = ['uletter', 'lletter', 'number', 'symbol']
+from char_list import *
 
 num_uletters = int(input('How much uppercase letters: '))
 num_lletters = int(input('How much lowercase letters: '))
@@ -18,19 +12,19 @@ password = ''
 for characters in range(password_lenght):
     random_char = choice(all_char)
 
-    if random_char == 'uletter':
+    if random_char == 'upper_letter':
         if num_uletters != 0:
             password += choice(upper_letters)
             num_uletters -= 1
         if num_uletters == 0:
-            all_char.remove('uletter')
+            all_char.remove('upper_letter')
     
-    elif random_char == 'lletter':
+    elif random_char == 'lower_letter':
         if num_lletters != 0:
             password += choice(lower_letters)
             num_lletters -= 1
         if num_lletters == 0:
-            all_char.remove('lletter')
+            all_char.remove('lower_letter')
 
     elif random_char == 'number':
         if num_numbers != 0:
