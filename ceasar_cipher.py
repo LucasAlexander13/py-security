@@ -1,3 +1,4 @@
+from functions import encode
 from char_list import *
 
 '''
@@ -12,37 +13,8 @@ while True:
     new_message = []
 
     if process == 'encode':
-        for char in range(len(message)):
-            if message[char] == ' ':
-                new_message.append(' ')
-
-            elif message[char] in upper_letters:
-                position = upper_letters.index(message[char]) + encrypt_key
-                if position >= len(upper_letters):
-                    position = position - len(upper_letters)
-                    new_message.append(upper_letters[position])
-                else:
-                    new_message.append(upper_letters[position])
-
-            elif message[char] in lower_letters:
-                position = lower_letters.index(message[char]) + encrypt_key
-                if position >= len(lower_letters):
-                    position = position - len(lower_letters)
-                    new_message.append(lower_letters[position])
-                else:
-                    new_message.append(lower_letters[position])
-
-            elif message[char] in numbers:
-                position = numbers.index(message[char]) + encrypt_key
-                if position >= len(numbers):
-                    position = position - len(numbers)
-                    new_message.append(numbers[position])
-                else:
-                    new_message.append(numbers[position])
-
-        new_message = ''.join(new_message)
-        print(f'\nYour message is: {new_message}\n')
-
+        encode(message, encrypt_key, new_message)
+        
         replay = input('Enter "Y" to continue: ').lower()
         if replay != 'y': break
 
