@@ -1,9 +1,12 @@
 from functions import encode, decode
+import program_art
 
 '''
 create a program that can encode and decode any 
 message in another one with ceasar cipher method
 '''
+
+print(program_art.logo)
 
 while True:
     message = list(input('Type the message: '))
