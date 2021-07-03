@@ -30,6 +30,8 @@ def encode(message, key, encoded):
                 encoded.append(numbers[position])
             else:
                 encoded.append(numbers[position])
+        else:
+            encoded.append(message[char])
 
     encoded = ''.join(encoded)
     print(f'\nYour message is: {encoded}\n')
@@ -64,6 +66,8 @@ def decode(message, key, decoded):
                 decoded.append(numbers[position])
             else:
                 decoded.append(numbers[position])
+        else:
+            decoded.append(message[char])
 
     decoded = ''.join(decoded)
     print(f'\nYour message is: {decoded}\n')
