@@ -1,5 +1,6 @@
 from random import choice
 from char_list import *
+from time import sleep
 
 num_uletters = int(input('How much uppercase letters: '))
 num_lletters = int(input('How much lowercase letters: '))
@@ -40,4 +41,6 @@ for characters in range(password_lenght):
         if num_symbols == 0:
             all_char.remove('symbol')
 
-print(f'Your password is: {password}') 
+print(f'Your password is: {password}')
+
+sleep(3)
